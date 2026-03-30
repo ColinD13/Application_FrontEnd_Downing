@@ -49,13 +49,9 @@
     <form class="form">
       <div class="form-group">
         <label for="name"><b>Name:</b></label>
-        <input
-          name="name"
-          id="name"
-          type="text"
-          class="form-control"
-          placeholder="Ex. Patrick Mahomes"
-        />
+        <select name="name" id="name" class="form-control">
+          <option value="">Loading players...</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="nfl_team"><b>Team:</b></label>
@@ -69,7 +65,9 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btm btn-primary btn-lg btn-block">Submit</button>
+        <button type="submit" class="btm btn-primary btn-lg btn-block">
+          Submit
+        </button>
       </div>
     </form>
 
@@ -79,6 +77,27 @@
 
     <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
     <script src="./js/getPlayers.js"></script> -->
+
+    <script>
+      async function loadPlayers() {
+        const response = await fetch("https://application-backend-downing.onrender.com/api/players");
+        const players = await response.json();
+
+        const select = document.getElementById("name");
+
+        select.innerHTML = '<option value="">Select a player</option>';
+
+        players.forEach((player) => {
+          const option = document.createElement("option");
+          console.log(player.name)
+          option.value = player.name;
+          option.textContent = player.name;
+          select.appendChild(option);
+        });
+      }
+
+      loadPlayers();
+    </script>
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

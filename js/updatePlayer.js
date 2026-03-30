@@ -9,6 +9,7 @@ formEl.addEventListener('submit', event => {
         $.toaster({priority: 'danger', title : 'Error Message', message: 'All values need inputted'})
     }
     else{
+       console.log("Submitting:", data);
        fetch('https://application-backend-downing.onrender.com/api/players', {
         method: 'PUT',
         headers: {
