@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Players</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="home-button">
+          <button
+            class="btn btn-secondary"
+            onclick="window.location.href = 'index.html'"
+          >
+            Players
+          </button>
+          <button
+            class="btn btn-secondary"
+            onclick="window.location.href = 'playersAdd.html'"
+          >
+            Add Players
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="pages-text-center">Update Trade (Enter ID to Update Date)</h1>
+
+    <form class="form">
+      <div class="form-group">
+        <label for="trade_id"><b>Id:</b></label>
+        <select name="trade_id" id="trade_id" class="form-control">
+          <option value="">Loading trades...</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="trade_date"><b>Date:</b></label>
+        <input 
+          name="trade_date"
+          id="trade_date"
+          type="text"
+          class="form-control"
+          placeholder="Ex. 2026-03-11T00:30:41.977Z"
+        />
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btm btn-primary btn-lg btn-block">
+          Submit
+        </button>
+      </div>
+    </form>
+
+    <!-- <div class="container">
+      <div id="table"></div>
+    </div>
+
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+    <script src="./js/getPlayers.js"></script> -->
+
+    <script>
+      async function loadTrades() {
+        const response = await fetch("https://application-backend-downing.onrender.com/api/trades");
+        const users = await response.json();
+
+        const select = document.getElementById("trade_id");
+
+        select.innerHTML = '<option value="">Select a user_id</option>';
+
+        users.forEach((trade) => {
+          const option = document.createElement("option");
+          console.log(trade.trade_id)
+          option.value = trade.trade_id;
+          option.textContent = trade.trade_id;
+          select.appendChild(option);
+        });
+      }
+
+      loadTrades();
+    </script>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+  <!-- This is for toast messages-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/jquery.toaster.js"></script>
+
+  <!--Post API-->
+  <script src="./js/updateTrade.js"></script>
+</html>
