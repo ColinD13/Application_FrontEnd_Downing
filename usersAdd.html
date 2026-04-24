@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Users</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="home-button">
+          <button
+            class="btn btn-secondary"
+            onclick="window.location.href = 'index.html'"
+          >
+            Players
+          </button>
+          <button
+            class="btn btn-secondary"
+            onclick="window.location.href = 'playersUpdate.html'"
+          >
+            Update Players
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="pages-text-center">Add Users</h1>
+
+    <form class="form">
+      <div class="form-group">
+        <label for="name"><b>Name:</b></label>
+        <input
+          name="name"
+          id="name"
+          type="text"
+          class="form-control"
+          placeholder="Ex. User 1"
+        />
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btm btn-primary btn-lg btn-block">
+          Submit
+        </button>
+      </div>
+    </form>
+
+    <!-- <div class="container">
+      <div id="table"></div>
+    </div>
+
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+    <script src="./js/getPlayers.js"></script> -->
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+  <!-- This is for toast messages-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="/js/jquery.toaster.js"></script>
+
+  <!--Post API-->
+  <script src="./js/postUser.js"></script>
+</html>
