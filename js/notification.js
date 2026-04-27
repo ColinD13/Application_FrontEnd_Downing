@@ -1,5 +1,5 @@
-document.getElementById("notify").addEventListener("click", (e) =>{
-    e.preventDefault();
+function showNotification(){
+    console.log("showNotification hit");
 
     if(!("Notification" in window)){
         alert("This browser does not support desktop notifications");
@@ -7,18 +7,12 @@ document.getElementById("notify").addEventListener("click", (e) =>{
     }
 
     if(Notification.permission === "granted"){
-         showNotification();
-    }
-    else if(Notification.permission !== "denied"){
+        new Notification("Player Added!");
+    } else if(Notification.permission !== "denied"){
         Notification.requestPermission().then(permission => {
-            if (permission === "granted"){
-                 showNotification();
+            if(permission === "granted"){
+                new Notification("Player Added!");
             }
         });
     }
-});
-
-function showNotification(){
-    console.log("showNotification hit");
-    new Notification("TEST");
 }

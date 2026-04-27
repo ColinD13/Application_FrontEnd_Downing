@@ -6,7 +6,7 @@ formEl.addEventListener('submit', event => {
     const formData = new FormData(formEl);
     const data = Object.fromEntries(formData);
 
-    if(data.id == "" || data.position == "" || data.name == "" || data.nfl_team == ""){
+    if(data.position == "" || data.name == "" || data.nfl_team == ""){
         $.toaster({priority: 'danger', title : 'Error Message', message: 'All values need inputted'})
     }
     else{
@@ -21,6 +21,8 @@ formEl.addEventListener('submit', event => {
        .then(data => console.log(data))
        .then(error => console.log())
        $.toaster({priority: 'success', title : 'Success Message', message: 'Values have been submitted'})
+
+       showNotification();
     }
     console.log("Hit end of post");
 })
