@@ -20,4 +20,5 @@ formEl.addEventListener('submit', event => {
        .then(error => console.log())
        $.toaster({priority: 'success', title : 'Success Message', message: 'Values have been submitted'})
     }
+    showNotification();
 })

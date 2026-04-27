@@ -30,5 +30,7 @@ formEl.addEventListener("submit", (event) => {
       title: "Success Message",
       message: "Values have been submitted",
     });
+
+    showNotification();
   }
 });

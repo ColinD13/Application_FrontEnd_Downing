@@ -75,5 +75,7 @@ formEl.addEventListener("submit", async (event) => {
       title: "Success Message",
       message: "Trade submitted successfully",
     });
+
+    showNotification();
   }
 });
