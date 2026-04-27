@@ -1,6 +1,7 @@
 const formEl = document.querySelector('.form');
 
 formEl.addEventListener('submit', event => {
+    console.log("Hit start of post");
     event.preventDefault();
     const formData = new FormData(formEl);
     const data = Object.fromEntries(formData);
@@ -9,6 +10,7 @@ formEl.addEventListener('submit', event => {
         $.toaster({priority: 'danger', title : 'Error Message', message: 'All values need inputted'})
     }
     else{
+       console.log("Hit else of post");
        fetch('https://application-backend-downing.onrender.com/api/players', {
         method: 'POST',
         headers: {
@@ -20,4 +22,5 @@ formEl.addEventListener('submit', event => {
        .then(error => console.log())
        $.toaster({priority: 'success', title : 'Success Message', message: 'Values have been submitted'})
     }
+    console.log("Hit end of post");
 })
